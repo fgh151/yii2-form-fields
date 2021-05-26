@@ -18,6 +18,7 @@ class FieldTypes
         11 => 'file',
         12 => 'select',
         13 => 'date',
+        14 => 'label',
     ];
 
     /**
