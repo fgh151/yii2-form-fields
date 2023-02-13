@@ -19,6 +19,7 @@ class FieldTypes
         12 => 'select',
         13 => 'date',
         14 => 'label',
+        15 => 'selectOther'
     ];
 
     /**
