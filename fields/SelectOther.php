@@ -14,7 +14,8 @@ class SelectOther extends BaseField
 
     protected $htmlType = 'select';
 
-    public $otherText = 'other';
+    public $otherText = 'Other';
+    public $otherValue = 'other';
 
     private $_inputId;
     private $_textId;
@@ -36,7 +37,7 @@ class SelectOther extends BaseField
         $label = Html::label($this->label, $this->attribute);
 
 
-        $this->selectOptions['other'] = $this->otherText;
+        $this->selectOptions[$this->otherValue] = $this->otherText;
 
         $this->options['id'] = $this->_inputId;
 
@@ -52,7 +53,10 @@ class SelectOther extends BaseField
             'value' => $this->otherText,
             'name' => $this->name,
             'id' => $this->_textId,
-            'style' => 'display: none;'
+            'style' => 'display: none;',
+            'options' => [
+                'disabled' => true,
+            ]
         ]);
         $return .=  $otherText->render();
 
@@ -67,11 +71,16 @@ class SelectOther extends BaseField
     {
         $view->registerJs(
             '
-            cons el = $("#'.$this->_inputId.'");
+            const el = $("#'.$this->_inputId.'");
+            const input = $("#'.$this->_textId.'");
             
             el.change(function(){
-                if (el.val() === \''.$this->otherText.'\') {
-                    $("#'.$this->_textId.'").toggle();
+                if (el.val() === \''.$this->otherValue.'\') {
+                    input.parent().show();
+                    input.prop(\'disabled\', false);
+                } else {
+                    input.parent().hide();
+                    input.prop(\'disabled\', true);
                 }
             })'
         );
