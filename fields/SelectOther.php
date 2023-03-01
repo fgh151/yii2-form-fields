@@ -69,18 +69,19 @@ class SelectOther extends BaseField
      */
     public function registerAssets($view)
     {
+        $postfix = uniqid();
         $view->registerJs(
             '
-            const el = $("#'.$this->_inputId.'");
-            const input = $("#'.$this->_textId.'");
+            const el_'.$postfix.' = $("#'.$this->_inputId.'");
+            const input_'.$postfix.' = $("#'.$this->_textId.'");
             
-            el.change(function(){
-                if (el.val() === \''.$this->otherValue.'\') {
-                    input.parent().show();
-                    input.prop(\'disabled\', false);
+            el_'.$postfix.'.change(function(){
+                if (el_'.$postfix.'.val() === \''.$this->otherValue.'\') {
+                    input_'.$postfix.'.parent().show();
+                    input_'.$postfix.'.prop(\'disabled\', false);
                 } else {
-                    input.parent().hide();
-                    input.prop(\'disabled\', true);
+                    input_'.$postfix.'.parent().hide();
+                    input_'.$postfix.'.prop(\'disabled\', true);
                 }
             })'
         );
