@@ -21,7 +21,7 @@ class FieldTypes
         14 => 'label',
         15 => 'selectOther',
         16 => 'selectMultiply',
-        17 => 'selectMultiplyOther',
+        17 => 'selectOtherMultiply',
     ];
 
     /**
