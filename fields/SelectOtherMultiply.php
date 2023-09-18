@@ -76,7 +76,7 @@ class SelectOtherMultiply extends BaseField
             const input_'.$postfix.' = $("#'.$this->_textId.'");
             
             el_'.$postfix.'.change(function(){
-                if (el_'.$postfix.'.val() === \''.$this->otherValue.'\') {
+                if (el_'.$postfix.'.val().includes(\''.$this->otherValue.'\')) {
                     input_'.$postfix.'.parent().show();
                     input_'.$postfix.'.prop(\'disabled\', false);
                 } else {
