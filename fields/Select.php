@@ -19,7 +19,7 @@ class Select extends BaseField
     public function render()
     {
         $label = Html::label($this->label, $this->attribute);
-        $input = Html::dropDownList($this->name, '', $this->selectOptions, $this->options);
+        $input = Html::dropDownList($this->name, $this->value, $this->selectOptions, $this->options);
 
         return Html::tag('div', $label . "\n" . $input . "\n", [
             'class' => 'upload-item',
