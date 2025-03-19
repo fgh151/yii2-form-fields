@@ -1,6 +1,6 @@
 {
     "name": "fgh151/yii2-form-fields",
-    "version": "0.0.16",
+    "version": "0.0.17",
     "description": "Collection of form fields",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","form","fields"],
